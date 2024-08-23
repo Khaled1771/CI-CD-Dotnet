@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: dotnet-deploy
+  labels:
+    app: back-end
+spec:
+  replicas: 1
+  template:
+    metadata: 
+      name: dotnet-pod
+      labels:
+        app: back-end
+    spec:
+      containers:
+      - name: dotnet
+        image: khaledmahmoud7/asp-net:7.0
+  selector:
+    matchLabels:
+      app: back-end

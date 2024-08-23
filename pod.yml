@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: dotnet-pod
+  labels:
+    app: back-end
+spec:
+  containers:
+  - name: dotnet
+    image: khaledmahmoud7/asp-net:7.0
