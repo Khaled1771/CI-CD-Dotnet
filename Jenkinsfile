@@ -51,12 +51,12 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                script {
-                    when{
+                when{
                         expression{
                             BRANCH_NAME == 'main'
                         }
                     }
+                script {
                     // Log in to Docker registry (e.g., Docker Hub)
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                    
