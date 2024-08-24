@@ -39,6 +39,11 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
+                when{
+                    expression{
+                        BRANCH_NAME == 'main'
+                    }
+                }
                 // Build the Docker image
                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
             }
